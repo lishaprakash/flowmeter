@@ -42,20 +42,23 @@ GPIO.output(ledGrn, GPIO.LOW)
 @app.route("/")
 def index():
 	# Read GPIO Status
-	buttonSts = GPIO.input(button)
-	senPIRSts = GPIO.input(senPIR)
-	ledRedSts = GPIO.input(ledRed)
-	ledYlwSts = GPIO.input(ledYlw)
-	ledGrnSts = GPIO.input(ledGrn)
+#	buttonSts = GPIO.input(button)
+#	senPIRSts = GPIO.input(senPIR)
+#	ledRedSts = GPIO.input(ledRed)
+#	ledYlwSts = GPIO.input(ledYlw)
+#	ledGrnSts = GPIO.input(ledGrn)
 
-	templateData = {
-      'button'  : buttonSts,
-      'senPIR'  : senPIRSts,
-      'ledRed'  : ledRedSts,
-      'ledYlw'  : ledYlwSts,
-      'ledGrn'  : ledGrnSts,
-      }
-	return render_template('index.html', **templateData)
+#	templateData = {
+#     'button'  : buttonSts,
+#      'senPIR'  : senPIRSts,
+#      'ledRed'  : ledRedSts,
+#      'ledYlw'  : ledYlwSts,
+#      'ledGrn'  : ledGrnSts,
+#      }
+        templateData = {
+                'name' : 'Jason'
+                }
+	return render_template('index_initial.html',**templateData)
 	
 # The function below is executed when someone requests a URL with the actuator name and action in it:
 @app.route("/<deviceName>/<action>")
@@ -88,4 +91,4 @@ def action(deviceName, action):
 	return render_template('index.html', **templateData)
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=80, debug=True)
+   app.run(host='0.0.0.0', port=5000, debug=True)
