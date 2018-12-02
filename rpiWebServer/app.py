@@ -68,6 +68,13 @@ def show_username(username):
             }
     return render_template('index_initial.html',**templateData)
 
+@app.route("/gif")
+def show_gif():
+	templateData = {
+		'name': 'Dumbass'
+	}
+	return render_template('index_initial.html',**templateData)
+
 # The function below is executed when someone requests a URL with the actuator name and action in it:
 @app.route("/<deviceName>/<action>")
 def action(deviceName, action):
